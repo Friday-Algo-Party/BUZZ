@@ -1,15 +1,22 @@
-import java.util.*;
+ import java.util.*;
 import java.lang.*;
 import java.io.*;
 
 // The main method must be in a class named "Main".
 class Main {
     private static int K;
-    private static int[] V;
+    private static int[] V = new int[100001];
     
-    public static int func(Queue<Integer> queue){
+    public static int func(int start){
+        Queue<Integer> queue = new LinkedList<>();
         Queue<Integer> nextLevel = new LinkedList<>();
+        queue.add(start);
+        V[start] = 1;
         int time = 0;
+
+        if (start == K) {
+            return 0;
+        }
 
         while (!queue.isEmpty()) {
             while(!queue.isEmpty()){
@@ -35,22 +42,11 @@ class Main {
     }
     public static void main(String[] args) {
         Scanner ac = new Scanner(System.in);
-        Queue<Integer> A = new LinkedList<>();
-        V = new int[100001];
         
         int N = ac.nextInt();
         K = ac.nextInt();
-        
-        A.add(N);
-        V[N] = 1;
-
-        if (N == K) {
-            System.out.println(0);
-            return;
-        }
-
-        
-        System.out.print(func(A));
+    
+        System.out.print(func(N));
     }
 }
 /*
