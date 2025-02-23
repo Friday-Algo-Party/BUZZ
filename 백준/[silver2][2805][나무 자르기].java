@@ -77,7 +77,7 @@ class Main {
         }
         
         while (start <= end) {
-            int mid = (start + end) / 2;
+            int mid = start + (end - start) / 2;
             long cal = getSum(A, N, mid);
             if (cal >= M) {
                 max = mid;
